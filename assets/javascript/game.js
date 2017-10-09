@@ -1,4 +1,4 @@
-var randomNumber = "";
+var randomNumber;
 var wins = 0;
 var losses = 0;
 var crystalOne = "";
@@ -7,13 +7,14 @@ var crystalThree = "";
 var crystalFour = "";
 var totalScore = 0;
 
+
 $(document).ready(function () {
 
     // On load of page a random number is generated between 19-120 in the randomNumber box.
     $(".random-number").ready(function () {
-        var randomNumber = "";
+        randomNumber = parseInt(randomNumber);
         for (var i = 19; i < 120; i++) {
-            var randomNumber = Math.floor(Math.random() * 120) + 1
+            randomNumber = Math.floor(Math.random() * 120) + 1
         };
         $(".random-number").html(randomNumber);
     }); // End random number generation for random number field.
@@ -57,9 +58,13 @@ $(document).ready(function () {
         $(".crystal-four-field").html(crystalFour);
     }); // End random number generation for random number field.
 
+
+
+    // ===========================================================
+    // On click of a crystal the number corrisponding to the crystal is printed to the    results field.
+    // On each consecultive click the number is added to the results number.
     // ===========================================================
 
-    // On click of a crystal the number corrisponding to the crystal is printed to the results field.
     $(".crystal-one-field").on("click", function () {
         var crystalValue = ($(".crystal-one-field").text());
         crystalValue = parseInt(crystalValue);
@@ -75,9 +80,23 @@ $(document).ready(function () {
             // Otherwise crystalValue is totalScoreValue and crystalValue added together and printed to Total Score field.
             (crystalValue = totalScoreValue + crystalValue)
             $(".total-score-field").html(crystalValue);
+
         }
 
         totalScore = crystalValue;
+
+        // If randomNumber field matches totalScore field a +1 goes in the wins.
+        if (randomNumber == totalScore) {
+            wins++;
+            $(".wins-field").html(wins);
+        // If totalScore field goes over randomNumber field +1 goes into losses.
+        } else if (totalScore > randomNumber) {
+            losses++;
+            $(".losses-field").html(losses);
+        }
+
+
+
 
         console.log(totalScore);
     });
@@ -101,6 +120,16 @@ $(document).ready(function () {
 
         totalScore = crystalValue;
 
+        // If randomNumber field matches totalScore field a +1 goes in the wins.
+        if (randomNumber == totalScore) {
+            wins++;
+            $(".wins-field").html(wins);
+        // If totalScore field goes over randomNumber field +1 goes into losses.
+        } else if (totalScore > randomNumber) {
+            losses++;
+            $(".losses-field").html(losses);
+        }
+
         console.log(totalScore);
 
     });
@@ -108,7 +137,7 @@ $(document).ready(function () {
     $(".crystal-three-field").on("click", function () {
         var crystalValue = ($(".crystal-three-field").text());
         crystalValue = parseInt(crystalValue);
-        
+
         // Takes what is in Total Score field, puts it into variable totalScoreValue and converts it from a string to an integer.
         var totalScoreValue = ($(".total-score-field").text());
         totalScoreValue = parseInt(totalScoreValue);
@@ -123,6 +152,16 @@ $(document).ready(function () {
         }
 
         totalScore = crystalValue;
+
+        // If randomNumber field matches totalScore field a +1 goes in the wins.
+        if (randomNumber == totalScore) {
+            wins++;
+            $(".wins-field").html(wins);
+        // If totalScore field goes over randomNumber field +1 goes into losses.
+        } else if (totalScore > randomNumber) {
+            losses++;
+            $(".losses-field").html(losses);
+        }
 
         console.log(totalScore);
     });
@@ -130,7 +169,7 @@ $(document).ready(function () {
     $(".crystal-four-field").on("click", function () {
         var crystalValue = ($(".crystal-four-field").text());
         crystalValue = parseInt(crystalValue);
-        
+
         // Takes what is in Total Score field, puts it into variable totalScoreValue and converts it from a string to an integer.
         var totalScoreValue = ($(".total-score-field").text());
         totalScoreValue = parseInt(totalScoreValue);
@@ -146,16 +185,25 @@ $(document).ready(function () {
 
         totalScore = crystalValue;
 
+        // If randomNumber field matches totalScore field a +1 goes in the wins.
+        if (randomNumber == totalScore) {
+            wins++;
+            $(".wins-field").html(wins);
+        // If totalScore field goes over randomNumber field +1 goes into losses.
+        } else if (totalScore > randomNumber) {
+            losses++;
+            $(".losses-field").html(losses);
+        }
+
         console.log(totalScore);
     });
+
 
 
 
 });
 
 
-
-// On each consecultive click the number is added to the results number.
 
 // If result field matches randomNumber field a point goes in the win field and the game starts over(clearing results field, genrating a new random number and generating new random numbers for the crystals).
 
