@@ -1,3 +1,8 @@
+// ==================================================================================
+// ======================= The Crystal Collector ====================================
+// ========================== By: Mike Sherman ======================================
+// ==================================================================================
+
 var randomNumber;
 var wins = 0;
 var losses = 0;
@@ -11,53 +16,71 @@ var totalScore = 0;
 $(document).ready(function () {
 
     // On load of page a random number is generated between 19-120 in the randomNumber box.
-    $(".random-number").ready(function () {
-        randomNumber = parseInt(randomNumber);
-        for (var i = 19; i < 120; i++) {
-            randomNumber = Math.floor(Math.random() * 120) + 1
-        };
-        $(".random-number").html(randomNumber);
-    }); // End random number generation for random number field.
+    function randomNumberGenerator() {
+        $(".random-number").ready(function () {
+            randomNumber = parseInt(randomNumber);
+            for (var i = 19; i < 120; i++) {
+                randomNumber = Math.floor(Math.random() * 120) + 1
+            };
+            $(".random-number").html(randomNumber);
+        });
+    }// End random number generation for random number field.
 
     // ===========================================================
     // Random numbers also generated for each crystal between 1-12.
 
     // On load of page generate a random number for Crystal One.
-    $(".crystal-one-field").ready(function () {
-        var crystalOne = "";
-        for (var i = 1; i < 12; i++) {
-            var crystalOne = Math.floor(Math.random() * 12) + 1
-        };
-        $(".crystal-one-field").html(crystalOne);
-    }); // End random number generation for random number field.
+    function crystalOneGenerator() {
+        $(".crystal-one-field").ready(function () {
+            var crystalOne = "";
+            for (var i = 1; i < 12; i++) {
+                var crystalOne = Math.floor(Math.random() * 12) + 1
+            };
+            $(".crystal-one-field").html(crystalOne);
+        });
+    }// End random number generation for random number field.
 
     // On load of page generate a random number for Crystal Two.
-    $(".crystal-two-field").ready(function () {
-        var crystalTwo = "";
-        for (var i = 1; i < 12; i++) {
-            var crystalTwo = Math.floor(Math.random() * 12) + 1
-        };
-        $(".crystal-two-field").html(crystalTwo);
-    }); // End random number generation for random number field.
+    function crystalTwoGenerator() {
+        $(".crystal-two-field").ready(function () {
+            var crystalTwo = "";
+            for (var i = 1; i < 12; i++) {
+                var crystalTwo = Math.floor(Math.random() * 12) + 1
+            };
+            $(".crystal-two-field").html(crystalTwo);
+        });
+    } // End random number generation for random number field.
 
     // On load of page generate a random number for Crystal Three.
-    $(".crystal-three-field").ready(function () {
-        var crystalThree = "";
-        for (var i = 1; i < 12; i++) {
-            var crystalThree = Math.floor(Math.random() * 12) + 1
-        };
-        $(".crystal-three-field").html(crystalThree);
-    }); // End random number generation for random number field.
+    function crystalThreeGenerator() {
+        $(".crystal-three-field").ready(function () {
+            var crystalThree = "";
+            for (var i = 1; i < 12; i++) {
+                var crystalThree = Math.floor(Math.random() * 12) + 1
+            };
+            $(".crystal-three-field").html(crystalThree);
+        });
+    } // End random number generation for random number field.
 
     // On load of page generate a random number for Crystal Four.
-    $(".crystal-four-field").ready(function () {
-        var crystalFour = "";
-        for (var i = 1; i < 12; i++) {
-            var crystalFour = Math.floor(Math.random() * 12) + 1
-        };
-        $(".crystal-four-field").html(crystalFour);
-    }); // End random number generation for random number field.
+    function crystalFourGenerator() {
+        $(".crystal-four-field").ready(function () {
+            var crystalFour = "";
+            for (var i = 1; i < 12; i++) {
+                var crystalFour = Math.floor(Math.random() * 12) + 1
+            };
+            $(".crystal-four-field").html(crystalFour);
+        });
+    }// End random number generation for random number field.
 
+    // ===========================================================
+    // Functions that randomly generate all numbers on page.
+    randomNumberGenerator()
+    crystalOneGenerator()
+    crystalTwoGenerator()
+    crystalThreeGenerator()
+    crystalFourGenerator()
+    // ===========================================================
 
 
     // ===========================================================
@@ -86,16 +109,30 @@ $(document).ready(function () {
         totalScore = crystalValue;
 
         // If randomNumber field matches totalScore field a +1 goes in the wins.
+        // Random numbers generated again for randomNumber field and all 4 crystals.  TotalScore set back to 0.
         if (randomNumber == totalScore) {
             wins++;
             $(".wins-field").html(wins);
-        // If totalScore field goes over randomNumber field +1 goes into losses.
+            randomNumberGenerator()
+            crystalOneGenerator()
+            crystalTwoGenerator()
+            crystalThreeGenerator()
+            crystalFourGenerator()
+            totalScore = 0;
+            $(".total-score-field").html(totalScore);
+            // If totalScore field goes over randomNumber field +1 goes into losses.
+            // Random numbers generated again for randomNumber field and all 4 crystals.  TotalScore set back to 0.
         } else if (totalScore > randomNumber) {
             losses++;
             $(".losses-field").html(losses);
+            randomNumberGenerator()
+            crystalOneGenerator()
+            crystalTwoGenerator()
+            crystalThreeGenerator()
+            crystalFourGenerator()
+            totalScore = 0;
+            $(".total-score-field").html(totalScore);
         }
-
-
 
 
         console.log(totalScore);
@@ -121,13 +158,29 @@ $(document).ready(function () {
         totalScore = crystalValue;
 
         // If randomNumber field matches totalScore field a +1 goes in the wins.
+        // Random numbers generated again for randomNumber field and all 4 crystals.  TotalScore set back to 0.
         if (randomNumber == totalScore) {
             wins++;
             $(".wins-field").html(wins);
-        // If totalScore field goes over randomNumber field +1 goes into losses.
+            randomNumberGenerator()
+            crystalOneGenerator()
+            crystalTwoGenerator()
+            crystalThreeGenerator()
+            crystalFourGenerator()
+            totalScore = 0;
+            $(".total-score-field").html(totalScore);
+            // If totalScore field goes over randomNumber field +1 goes into losses.
+            // Random numbers generated again for randomNumber field and all 4 crystals.  TotalScore set back to 0.
         } else if (totalScore > randomNumber) {
             losses++;
             $(".losses-field").html(losses);
+            randomNumberGenerator()
+            crystalOneGenerator()
+            crystalTwoGenerator()
+            crystalThreeGenerator()
+            crystalFourGenerator()
+            totalScore = 0;
+            $(".total-score-field").html(totalScore);
         }
 
         console.log(totalScore);
@@ -154,13 +207,29 @@ $(document).ready(function () {
         totalScore = crystalValue;
 
         // If randomNumber field matches totalScore field a +1 goes in the wins.
+        // Random numbers generated again for randomNumber field and all 4 crystals.  TotalScore set back to 0.
         if (randomNumber == totalScore) {
             wins++;
             $(".wins-field").html(wins);
-        // If totalScore field goes over randomNumber field +1 goes into losses.
+            randomNumberGenerator()
+            crystalOneGenerator()
+            crystalTwoGenerator()
+            crystalThreeGenerator()
+            crystalFourGenerator()
+            totalScore = 0;
+            $(".total-score-field").html(totalScore);
+            // If totalScore field goes over randomNumber field +1 goes into losses.
+            // Random numbers generated again for randomNumber field and all 4 crystals.  TotalScore set back to 0.
         } else if (totalScore > randomNumber) {
             losses++;
             $(".losses-field").html(losses);
+            randomNumberGenerator()
+            crystalOneGenerator()
+            crystalTwoGenerator()
+            crystalThreeGenerator()
+            crystalFourGenerator()
+            totalScore = 0;
+            $(".total-score-field").html(totalScore);
         }
 
         console.log(totalScore);
@@ -186,13 +255,29 @@ $(document).ready(function () {
         totalScore = crystalValue;
 
         // If randomNumber field matches totalScore field a +1 goes in the wins.
+        // Random numbers generated again for randomNumber field and all 4 crystals.  TotalScore set back to 0.
         if (randomNumber == totalScore) {
             wins++;
             $(".wins-field").html(wins);
-        // If totalScore field goes over randomNumber field +1 goes into losses.
+            randomNumberGenerator()
+            crystalOneGenerator()
+            crystalTwoGenerator()
+            crystalThreeGenerator()
+            crystalFourGenerator()
+            totalScore = 0;
+            $(".total-score-field").html(totalScore);
+            // If totalScore field goes over randomNumber field +1 goes into losses.
+            // Random numbers generated again for randomNumber field and all 4 crystals.  TotalScore set back to 0.
         } else if (totalScore > randomNumber) {
             losses++;
             $(".losses-field").html(losses);
+            randomNumberGenerator()
+            crystalOneGenerator()
+            crystalTwoGenerator()
+            crystalThreeGenerator()
+            crystalFourGenerator()
+            totalScore = 0;
+            $(".total-score-field").html(totalScore);
         }
 
         console.log(totalScore);
@@ -204,7 +289,3 @@ $(document).ready(function () {
 });
 
 
-
-// If result field matches randomNumber field a point goes in the win field and the game starts over(clearing results field, genrating a new random number and generating new random numbers for the crystals).
-
-// If result field goes over randomNumber field a point goes in losses field and the game starts over (clearing results field, genrating a new random number and generating new random numbers for the crystals).
