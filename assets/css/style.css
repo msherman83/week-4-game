@@ -5,11 +5,15 @@ body {
 }
 
 h1 {
-    font-size: 60px;
+    font-size: 80px;
     color: white;
     margin-bottom: 50px;
 }
 
+.crystal-one-field, .crystal-two-field, .crystal-three-field, .crystal-four-field {
+    height: 150px;
+    width: 150px;
+}
 
 
 footer {
