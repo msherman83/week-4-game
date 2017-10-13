@@ -20,7 +20,7 @@ $(document).ready(function () {
         $(".random-number").ready(function () {
             randomNumber = parseInt(randomNumber);
             for (var i = 19; i < 120; i++) {
-                randomNumber = Math.floor(Math.random() * 120) + 1
+                randomNumber = Math.floor(Math.random() * (120 - 19)) + 1
             };
             $(".random-number").html(randomNumber);
         });
@@ -73,6 +73,8 @@ $(document).ready(function () {
         });
     }// End random number generation for random number field.
 
+
+
     // ===========================================================
     // Functions that randomly generate all numbers on page.
     randomNumberGenerator()
@@ -81,6 +83,7 @@ $(document).ready(function () {
     crystalThreeGenerator()
     crystalFourGenerator()
     // ===========================================================
+
 
 
     // ===========================================================
