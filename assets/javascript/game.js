@@ -13,7 +13,25 @@ var crystalFour = "";
 var totalScore = 0;
 
 
+var crystalImageOne = $("<img>");
+// First each crystal will be given the class ".crystal-image".
+// This will allow the CSS to take effect.
+crystalImageOne.addClass("crystal-one-field");
+
+// Each imageCrystal will be given a src link to the crystal image
+crystalImageOne.attr("src", "https://dummyimage.com/150x150/000/fff");
+
+// Each imageCrystal will be given a data attribute called data-crystalValue.
+// This data attribute will be set equal to the array value.
+crystalImageOne.attr("data-crystalvalue", crystalOne);
+
+console.log(crystalOne);
+
 $(document).ready(function () {
+
+
+
+
 
     // On load of page a random number is generated between 19-120 in the randomNumber box.
     function randomNumberGenerator() {
@@ -23,6 +41,7 @@ $(document).ready(function () {
                 randomNumber = Math.floor(Math.random() * (120 - 19)) + 1
             };
             $(".random-number").html(randomNumber);
+            
         });
     }// End random number generation for random number field.
 
